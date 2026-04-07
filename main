@@ -1,0 +1,32 @@
+import telebot
+
+
+
+bot = telebot.TeleBot('8606827006:AAGtP8PJRQsJNDNycFTT-yUGZsLWwBOqv5E')
+
+
+@bot.message_handler(commands=['start', 'hello'])
+def main(message):
+    bot.send_message(message.chat.id, f"hello,{message.from_user.first_name} this bot by fellebb4 (bio)")
+
+@bot.message_handler(commands=['donation','donate',"donat"])
+def main(message):
+    bot.send_message(message.chat.id, "support fellebb4 (donate), url=https://www.donationalerts.com/r/fellebb4")
+
+
+@bot.message_handler(content_types=['photo', 'sticker', 'audio',  'video', 'voice'])
+def get_photo(message):
+   bot.reply_to(message,'cool!')
+def get_audio(message):
+   bot.reply_to(message,'cool!')
+def get_sticker(message):
+   bot.reply_to(message,'cool!')
+def get_video(message):
+    bot.reply_to(message,'cool!')
+def get_voice(message):
+    bot.reply_to(message,'cool!')
+
+
+
+
+bot.infinity_polling()
